@@ -32,7 +32,7 @@
         "givenName": "Haoxin",
         "familyName": "Chen",
         "jobTitle": "Video Generation Algorithm Researcher & Engineer",
-        "email": "jszxchx@gmail.com",
+        "email": "jszxchx [at] gmail [dot] com",
         "url": "https://scutpaul.github.io",
         "sameAs": [
             "https://scholar.google.com/citations?user=6UPJSvwAAAAJ",
@@ -389,6 +389,31 @@
         .pub-v .yr { color: var(--text-lo); }
         .pub-v .ct { color: var(--accent); background: var(--accent-bg); padding: 2px 8px; border-radius: 3px; }
 
+        /* ── Pub Groups ── */
+        .pub-group { margin-bottom: 40px; }
+        .pub-group-title {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            padding: 5px 14px;
+            background: var(--accent-bg);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .pub-group-desc {
+            font-size: 13px;
+            color: var(--text-lo);
+            line-height: 1.6;
+            margin-bottom: 14px;
+            max-width: 620px;
+        }
+        .pub-group .pub:first-child { padding-top: 0; }
+
         /* ── Contact ── */
         .contact-grid {
             display: grid;
@@ -551,11 +576,11 @@
                 <br><br>
                 Currently looking for like-minded partners in <strong>real-time interaction</strong> and
                 <strong>multimodal generation</strong> to collaborate on AI-native algorithm R&amp;D.
-                <a href="mailto:jszxchx@gmail.com" style="color:var(--accent)">Get in touch</a> if you're interested.
+                <a href="#" class="js-email" style="color:var(--accent)">Get in touch</a> if you're interested.
             </p>
             <div class="cta">
                 <a href="https://scholar.google.com/citations?user=6UPJSvwAAAAJ" class="btn btn-p" target="_blank" rel="noopener">Google Scholar</a>
-                <a href="mailto:jszxchx@gmail.com" class="btn btn-g">Contact Me</a>
+                <a href="#" class="btn btn-g js-email">Contact Me</a>
                 <a href="https://github.com/scutpaul" class="btn btn-g" target="_blank" rel="noopener">GitHub</a>
             </div>
             </div>
@@ -747,61 +772,79 @@
         </div>
     </section>
 
-    <!-- ════ Publications ════ -->
+    <!-- ════ Research ════ -->
     <section id="pub">
-        <div class="label rv">Selected Publications</div>
-        <ul class="pub-list">
+        <div class="label rv">Research</div>
 
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter2+Overcoming+data+limitations+high-quality+video+diffusion" target="_blank" rel="noopener">VideoCrafter2: Overcoming Data Limitations for High-Quality Video Diffusion Models</a></div>
-                <div class="pub-a"><span class="me">H Chen</span>, Y Zhang, X Cun, M Xia, X Wang, C Weng, Y Shan</div>
-                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">550 cited</span></div>
-            </li>
+        <div class="pub-group rv">
+            <h3 class="pub-group-title">Video Diffusion &mdash; Data &amp; Training Recipe</h3>
+            <p class="pub-group-desc">Focused on overcoming data limitations and establishing open-source foundations for high-quality video diffusion models.</p>
+            <ul class="pub-list">
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter2+Overcoming+data+limitations+high-quality+video+diffusion" target="_blank" rel="noopener">VideoCrafter2: Overcoming Data Limitations for High-Quality Video Diffusion Models</a></div>
+                    <div class="pub-a"><span class="me">H Chen</span>, Y Zhang, X Cun, M Xia, X Wang, C Weng, Y Shan</div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">550 cited</span></div>
+                </li>
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter1+Open+diffusion+models+high-quality+video+generation" target="_blank" rel="noopener">VideoCrafter1: Open Diffusion Models for High-Quality Video Generation</a></div>
+                    <div class="pub-a"><span class="me">H Chen</span>, M Xia, Y He, Y Zhang, X Cun, S Yang, J Xing, Y Liu, Q Chen, ...</div>
+                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">542 cited</span></div>
+                </li>
+            </ul>
+        </div>
 
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter1+Open+diffusion+models+high-quality+video+generation" target="_blank" rel="noopener">VideoCrafter1: Open Diffusion Models for High-Quality Video Generation</a></div>
-                <div class="pub-a"><span class="me">H Chen</span>, M Xia, Y He, Y Zhang, X Cun, S Yang, J Xing, Y Liu, Q Chen, ...</div>
-                <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">542 cited</span></div>
-            </li>
+        <div class="pub-group rv">
+            <h3 class="pub-group-title">Image-to-Video &amp; Animation</h3>
+            <p class="pub-group-desc">Exploring how to breathe life into static images through video diffusion priors and controllable generation.</p>
+            <ul class="pub-list">
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=DynamiCrafter+Animating+open-domain+images+video+diffusion+priors" target="_blank" rel="noopener">DynamiCrafter: Animating Open-Domain Images with Video Diffusion Priors</a></div>
+                    <div class="pub-a">J Xing, M Xia, Y Zhang, <span class="me">H Chen</span>, X Wang, TT Wong, Y Shan</div>
+                    <div class="pub-v"><span class="vn">ECCV</span><span class="yr">2023</span><span class="ct">438 cited</span></div>
+                </li>
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Make-Your-Video+customized+video+generation+textual+structural" target="_blank" rel="noopener">Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance</a></div>
+                    <div class="pub-a">J Xing, M Xia, Y Liu, Y Zhang, Y Zhang, Y He, H Liu, <span class="me">H Chen</span>, X Cun, ...</div>
+                    <div class="pub-v"><span class="vn">TVCG</span><span class="yr">2024</span><span class="ct">142 cited</span></div>
+                </li>
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Animate-A-Story+Storytelling+retrieval-augmented+video+generation" target="_blank" rel="noopener">Animate-A-Story: Storytelling with Retrieval-Augmented Video Generation</a></div>
+                    <div class="pub-a">Y He, M Xia, <span class="me">H Chen</span>, X Cun, Y Gong, J Xing, Y Zhang, X Wang, C Weng, ...</div>
+                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">100 cited</span></div>
+                </li>
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=ScaleCrafter+Tuning-free+higher-resolution+visual+generation+diffusion" target="_blank" rel="noopener">ScaleCrafter: Tuning-free Higher-Resolution Visual Generation with Diffusion Models</a></div>
+                    <div class="pub-a">Y He, S Yang, <span class="me">H Chen</span>, X Cun, M Xia, Y Zhang, X Wang, R He, Q Chen, ...</div>
+                    <div class="pub-v"><span class="vn">ICLR</span><span class="yr">2023</span><span class="ct">104 cited</span></div>
+                </li>
+            </ul>
+        </div>
 
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=DynamiCrafter+Animating+open-domain+images+video+diffusion+priors" target="_blank" rel="noopener">DynamiCrafter: Animating Open-Domain Images with Video Diffusion Priors</a></div>
-                <div class="pub-a">J Xing, M Xia, Y Zhang, <span class="me">H Chen</span>, X Wang, TT Wong, Y Shan</div>
-                <div class="pub-v"><span class="vn">ECCV</span><span class="yr">2023</span><span class="ct">438 cited</span></div>
-            </li>
+        <div class="pub-group rv">
+            <h3 class="pub-group-title">Evaluation &amp; Benchmark</h3>
+            <p class="pub-group-desc">Building rigorous evaluation frameworks for video generation models.</p>
+            <ul class="pub-list">
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=EvalCrafter+Benchmarking+evaluating+large+video+generation+models" target="_blank" rel="noopener">EvalCrafter: Benchmarking and Evaluating Large Video Generation Models</a></div>
+                    <div class="pub-a">Y Liu, X Cun, X Liu, X Wang, Y Zhang, <span class="me">H Chen</span>, Y Liu, T Zeng, R Chan, ...</div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">280 cited</span></div>
+                </li>
+            </ul>
+        </div>
 
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=EvalCrafter+Benchmarking+evaluating+large+video+generation+models" target="_blank" rel="noopener">EvalCrafter: Benchmarking and Evaluating Large Video Generation Models</a></div>
-                <div class="pub-a">Y Liu, X Cun, X Liu, X Wang, Y Zhang, <span class="me">H Chen</span>, Y Liu, T Zeng, R Chan, ...</div>
-                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">280 cited</span></div>
-            </li>
+        <div class="pub-group rv">
+            <h3 class="pub-group-title">Video Object Segmentation &mdash; Earlier Work</h3>
+            <p class="pub-group-desc">Master's research on few-shot video understanding with attention-based architectures.</p>
+            <ul class="pub-list">
+                <li class="pub">
+                    <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Delving+deep+many-to-many+attention+few-shot+video+object+segmentation" target="_blank" rel="noopener">Delving Deep into Many-to-Many Attention for Few-Shot Video Object Segmentation</a></div>
+                    <div class="pub-a"><span class="me">H Chen</span>, H Wu, N Zhao, S Ren, S He</div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2021</span><span class="ct">28 cited</span></div>
+                </li>
+            </ul>
+        </div>
 
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Make-Your-Video+customized+video+generation+textual+structural" target="_blank" rel="noopener">Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance</a></div>
-                <div class="pub-a">J Xing, M Xia, Y Liu, Y Zhang, Y Zhang, Y He, H Liu, <span class="me">H Chen</span>, X Cun, ...</div>
-                <div class="pub-v"><span class="vn">TVCG</span><span class="yr">2024</span><span class="ct">142 cited</span></div>
-            </li>
-
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=ScaleCrafter+Tuning-free+higher-resolution+visual+generation+diffusion" target="_blank" rel="noopener">ScaleCrafter: Tuning-free Higher-Resolution Visual Generation with Diffusion Models</a></div>
-                <div class="pub-a">Y He, S Yang, <span class="me">H Chen</span>, X Cun, M Xia, Y Zhang, X Wang, R He, Q Chen, ...</div>
-                <div class="pub-v"><span class="vn">ICLR</span><span class="yr">2023</span><span class="ct">104 cited</span></div>
-            </li>
-
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Animate-A-Story+Storytelling+retrieval-augmented+video+generation" target="_blank" rel="noopener">Animate-A-Story: Storytelling with Retrieval-Augmented Video Generation</a></div>
-                <div class="pub-a">Y He, M Xia, <span class="me">H Chen</span>, X Cun, Y Gong, J Xing, Y Zhang, X Wang, C Weng, ...</div>
-                <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">100 cited</span></div>
-            </li>
-
-            <li class="pub rv">
-                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Delving+deep+many-to-many+attention+few-shot+video+object+segmentation" target="_blank" rel="noopener">Delving Deep into Many-to-Many Attention for Few-Shot Video Object Segmentation</a></div>
-                <div class="pub-a"><span class="me">H Chen</span>, H Wu, N Zhao, S Ren, S He</div>
-                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2021</span><span class="ct">28 cited</span></div>
-            </li>
-
-        </ul>
-        <p style="margin-top:24px">
+        <p style="margin-top:24px" class="rv">
             <a href="https://scholar.google.com/citations?user=6UPJSvwAAAAJ" target="_blank" rel="noopener"
                style="color:var(--accent);font-size:13px;font-family:var(--mono)">
                 View all publications on Google Scholar &rarr;
@@ -819,7 +862,7 @@
         <div class="contact-grid rv">
             <div class="ci">
                 <div class="cl">Email</div>
-                <a href="mailto:jszxchx@gmail.com">jszxchx@gmail.com</a>
+                <a href="#" class="js-email js-email-show"></a>
             </div>
             <div class="ci">
                 <div class="cl">Google Scholar</div>
@@ -836,12 +879,12 @@
 
 <footer>
     <div class="wrap">
-        <p>&copy; 2026 Haoxin Chen</p>
+        <p>&copy; 2026 Haoxin Chen &middot; Last updated Mar 2026</p>
         <div class="ai-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
-            This page was designed &amp; built by AI Agent
+            Designed &amp; built by AI Agent &middot; Content curated by me
         </div>
     </div>
 </footer>
@@ -951,7 +994,7 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
     const finalName = h1.textContent;
     h1.textContent = '';
 
-    let scrambleRaf, keepScrambling = true;
+    let scrambleTimer, keepScrambling = true;
     function scrambleCycle() {
         let out = '';
         for (let i = 0; i < finalName.length; i++) {
@@ -959,13 +1002,13 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
             out += '<span class="scramble-char">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
         }
         h1.innerHTML = out;
-        if (keepScrambling) scrambleRaf = requestAnimationFrame(scrambleCycle);
+        if (keepScrambling) scrambleTimer = setTimeout(scrambleCycle, 70);
     }
 
     function resolveScramble() {
         keepScrambling = false;
-        cancelAnimationFrame(scrambleRaf);
-        let revealed = 0, frame = 0;
+        clearTimeout(scrambleTimer);
+        let revealed = 0;
         function step() {
             let out = '';
             for (let i = 0; i < finalName.length; i++) {
@@ -974,9 +1017,8 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
                 else { out += '<span class="scramble-char">' + chars[Math.floor(Math.random() * chars.length)] + '</span>'; }
             }
             h1.innerHTML = out;
-            frame++;
-            if (frame % 3 === 0) revealed++;
-            if (revealed <= finalName.length) requestAnimationFrame(step);
+            revealed++;
+            if (revealed <= finalName.length) setTimeout(step, 90);
         }
         step();
     }
@@ -1051,6 +1093,16 @@ document.querySelectorAll('.btn').forEach(btn => {
         btn.style.transition = 'transform .4s cubic-bezier(.03,.98,.52,.99)';
     });
 });
+
+/* ── 7. Email Anti-Crawl (JS assembly) ── */
+(function() {
+    var u = 'jszxchx', d = 'gmail.com';
+    var addr = u + '@' + d;
+    document.querySelectorAll('.js-email').forEach(function(el) {
+        el.href = 'mai' + 'lto:' + addr;
+        if (el.classList.contains('js-email-show')) el.textContent = addr;
+    });
+})();
 </script>
 
 </body>
