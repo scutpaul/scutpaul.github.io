@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haoxin Chen | Video Generation Researcher & Engineer</title>
+
+    <meta name="description" content="Haoxin Chen - Video Generation Algorithm Researcher and Engineer. Key contributor to VideoCrafter, HunyuanVideo, Seedance. Currently at vivix.ai building multimodal real-time interactive generation.">
+    <meta name="keywords" content="Haoxin Chen, video generation, diffusion models, VideoCrafter, HunyuanVideo, Seedance, DynamiCrafter, AI, computer vision, SCUT, Tencent, ByteDance, vivix.ai, multimodal, real-time interactive generation">
+    <meta name="author" content="Haoxin Chen">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+    <meta property="og:title" content="Haoxin Chen | Video Generation Researcher & Engineer">
+    <meta property="og:description" content="Video generation algorithm researcher & engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance. 2500+ citations.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://scutpaul.github.io">
+    <meta property="profile:first_name" content="Haoxin">
+    <meta property="profile:last_name" content="Chen">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Haoxin Chen | Video Generation Researcher">
+    <meta name="twitter:description" content="Video generation algorithm researcher & engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance.">
+
+    <link rel="canonical" href="https://scutpaul.github.io">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306060e'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2300d4ff' font-size='16' font-family='monospace' font-weight='bold'>HC</text></svg>">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Haoxin Chen",
+        "givenName": "Haoxin",
+        "familyName": "Chen",
+        "jobTitle": "Video Generation Algorithm Researcher & Engineer",
+        "email": "jszxchx@gmail.com",
+        "url": "https://scutpaul.github.io",
+        "sameAs": [
+            "https://scholar.google.com/citations?user=6UPJSvwAAAAJ",
+            "https://github.com/scutpaul"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "South China University of Technology",
+            "alternateName": "SCUT",
+            "url": "https://www.scut.edu.cn"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "vivix.ai",
+            "description": "Multimodal real-time interactive generation startup"
+        },
+        "knowsAbout": [
+            "Video Generation",
+            "Diffusion Models",
+            "Generative AI",
+            "Computer Vision",
+            "Real-time Interactive Multimodal Systems",
+            "AI-native Internet",
+            "Video Object Segmentation"
+        ],
+        "description": "Video generation algorithm researcher and engineer. Graduated from South China University of Technology (2015-2022). Participated in VideoCrafter and HunyuanVideo at Tencent (2021-2024), Seedance and AI short drama platforms at ByteDance (2024-2026). Currently at vivix.ai working on multimodal real-time interactive generation. 2500+ total citations.",
+        "memberOf": [
+            {"@type": "Organization", "name": "Tencent", "description": "Participated in VideoCrafter series and HunyuanVideo (2021-2024)"},
+            {"@type": "Organization", "name": "ByteDance", "description": "Participated in Seedance, Douyin and Honguo AI short drama platforms (2024-2026)"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #06060e;
+            --surface: rgba(255,255,255,0.03);
+            --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.07);
+            --border-hi: rgba(255,255,255,0.14);
+            --text: #9ca3af;
+            --text-hi: #e5e7eb;
+            --text-lo: #6b7280;
+            --accent: #00d4ff;
+            --accent-bg: rgba(0,212,255,0.12);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --max-w: 920px;
+            --r: 8px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(6,6,14,0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 54px;
+        }
+        nav .logo {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        nav .links { display: flex; gap: 24px; }
+        nav .links a {
+            color: var(--text-lo);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color .2s;
+        }
+        nav .links a:hover { color: var(--text-hi); }
+
+        /* ── Layout ── */
+        .wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        section { padding: 80px 0; }
+
+        .label {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 54px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-body { width: 100%; position: relative; }
+        .hero-row { display: flex; align-items: center; gap: 48px; }
+        .hero-text { flex: 1; min-width: 0; }
+        .hero-avatar { flex-shrink: 0; }
+        .hero-avatar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-hi);
+            box-shadow: 0 0 40px rgba(0,212,255,0.1);
+        }
+        .hero .tag {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+            padding: 7px 16px;
+            background: var(--accent-bg);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 700;
+            color: var(--text-hi);
+            line-height: 1.1;
+            letter-spacing: -.03em;
+            margin-bottom: 14px;
+        }
+        .hero .sub {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+        .hero .bio {
+            max-width: 620px;
+            line-height: 1.85;
+        }
+        .hero .bio strong { color: var(--text-hi); }
+        .hero .bio .hl { color: var(--accent); }
+        .cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: var(--font);
+            border-radius: var(--r);
+            text-decoration: none;
+            transition: all .2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-p { background: var(--accent); color: var(--bg); }
+        .btn-p:hover { background: #33ddff; box-shadow: 0 0 24px rgba(0,212,255,0.3); }
+        .btn-g { background: transparent; color: var(--text-hi); border: 1px solid var(--border-hi); }
+        .btn-g:hover { background: var(--surface-hover); border-color: var(--text-lo); }
+
+        /* ── About ── */
+        .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .interests span {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text);
+            padding: 5px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        /* ── Timeline ── */
+        .tl-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 32px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .tl-item:last-child { border-bottom: none; }
+        .tl-time {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-lo);
+            padding-top: 3px;
+        }
+        .tl-item h3 { font-size: 15px; font-weight: 600; color: var(--text-hi); margin-bottom: 3px; }
+        .tl-org { font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+        .tl-desc { font-size: 14px; line-height: 1.7; }
+
+        /* ── Works ── */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+            gap: 18px;
+        }
+        .wc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            transition: all .3s;
+        }
+        .wc:hover { border-color: var(--border-hi); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+
+        .wc-vis {
+            aspect-ratio: 16/9;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wc-vis .bg {
+            position: absolute;
+            inset: 0;
+            background-size: 200% 200%;
+            opacity: .8;
+        }
+        .wc-vis video, .wc-vis img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .wc-vis .play {
+            position: relative;
+            z-index: 2;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.45);
+            border: 2px solid rgba(255,255,255,.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s;
+        }
+        .wc:hover .play { background: rgba(0,212,255,.25); border-color: var(--accent); transform: scale(1.1); }
+        .play svg { width: 16px; height: 16px; fill: #fff; margin-left: 2px; }
+
+        .wc-body { padding: 14px 16px 16px; }
+        .wc-body h3 { font-size: 15px; font-weight: 600; color: var(--text-hi); margin-bottom: 3px; }
+        .wc-meta { font-family: var(--mono); font-size: 11px; color: var(--text-lo); margin-bottom: 8px; }
+        .wc-meta .v { color: var(--accent); }
+        .wc-d { font-size: 13px; line-height: 1.6; margin-bottom: 12px; }
+        .wc-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .wc-links a {
+            font-size: 11px;
+            font-family: var(--mono);
+            color: var(--text-lo);
+            text-decoration: none;
+            padding: 3px 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all .2s;
+        }
+        .wc-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+        .g1 { background: linear-gradient(135deg, #1a0533 0%, #2d1b69 50%, #1a3a5a 100%); animation: gs 8s ease infinite; }
+        .g2 { background: linear-gradient(135deg, #0a2818 0%, #1a4a2e 50%, #0a3828 100%); animation: gs 9s ease infinite; }
+        .g3 { background: linear-gradient(135deg, #0a1628 0%, #1a2a5e 50%, #0a3050 100%); animation: gs 10s ease infinite; }
+        .g4 { background: linear-gradient(135deg, #2e1a0a 0%, #4a2e1a 50%, #2e2a1a 100%); animation: gs 11s ease infinite; }
+        .g5 { background: linear-gradient(135deg, #1a0a2e 0%, #3a1a4a 50%, #1a2a3e 100%); animation: gs 12s ease infinite; }
+        .g6 { background: linear-gradient(135deg, #0a1a2e 0%, #1a3a5e 50%, #2a1a3e 100%); animation: gs 10s ease infinite; }
+
+        @keyframes gs {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ── Publications ── */
+        .pub-list { list-style: none; }
+        .pub { padding: 18px 0; border-bottom: 1px solid var(--border); }
+        .pub:last-child { border-bottom: none; }
+        .pub-t { font-size: 14px; font-weight: 500; color: var(--text-hi); line-height: 1.5; margin-bottom: 5px; }
+        .pub-t a { color: inherit; text-decoration: none; transition: color .2s; }
+        .pub-t a:hover { color: var(--accent); }
+        .pub-a { font-size: 13px; color: var(--text-lo); margin-bottom: 5px; line-height: 1.5; }
+        .pub-a .me { color: var(--accent); font-weight: 500; }
+        .pub-v { font-family: var(--mono); font-size: 11px; display: inline-flex; align-items: center; gap: 10px; }
+        .pub-v .vn { color: var(--text); }
+        .pub-v .yr { color: var(--text-lo); }
+        .pub-v .ct { color: var(--accent); background: var(--accent-bg); padding: 2px 8px; border-radius: 3px; }
+
+        /* ── Contact ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .ci {
+            padding: 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            transition: border-color .2s;
+        }
+        .ci:hover { border-color: var(--border-hi); }
+        .ci .cl { font-family: var(--mono); font-size: 11px; color: var(--text-lo); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+        .ci a { color: var(--text-hi); text-decoration: none; font-size: 14px; word-break: break-all; transition: color .2s; }
+        .ci a:hover { color: var(--accent); }
+
+        /* ── Footer ── */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        footer p { font-size: 12px; color: var(--text-lo); font-family: var(--mono); }
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--text-lo);
+            font-family: var(--mono);
+            padding: 4px 14px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        .ai-badge svg { flex-shrink: 0; }
+
+        /* ── Reveal ── */
+        .rv { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        .rv.vis { opacity: 1; transform: translateY(0); }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            section { padding: 56px 0; }
+            .tl-item { grid-template-columns: 1fr; gap: 4px; }
+            .tl-time { padding-top: 0; }
+            .works-grid { grid-template-columns: 1fr; }
+            .hero-row { flex-direction: column-reverse; gap: 24px; text-align: center; }
+            .hero-avatar img { width: 140px; height: 140px; }
+            .cta { justify-content: center; }
+            nav .links { gap: 14px; }
+            nav .links a { font-size: 12px; }
+            .hero h1 { font-size: 2rem; }
+        }
+
+        /* ── Noscript fallback ── */
+        noscript .rv { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="inner">
+        <a href="#" class="logo">haoxin.chen</a>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#exp">Experience</a>
+            <a href="#works">Works</a>
+            <a href="#pub">Papers</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<div class="wrap">
+
+    <!-- ════ Hero ════ -->
+    <section class="hero" id="top">
+        <div class="hero-body">
+            <div class="hero-row">
+            <div class="hero-text">
+            <div class="tag">$ researcher --field "video-generation" --mode "building"</div>
+            <h1>Haoxin Chen</h1>
+            <p class="sub">Video Generation &middot; Algorithm Researcher &amp; Engineer</p>
+            <p class="bio">
+                Building the future of AI-generated video. Contributed to
+                <strong>VideoCrafter</strong>, <strong>HunyuanVideo</strong>, and
+                <strong>Seedance</strong>. Currently exploring real-time interactive
+                multimodal generation at <strong class="hl">vivix.ai</strong>.
+                <br><br>
+                2,500+ total citations &middot; Published at CVPR, ECCV, ICLR, SIGGRAPH Asia.
+                <br><br>
+                Currently looking for like-minded partners in <strong>real-time interaction</strong> and
+                <strong>multimodal generation</strong> to collaborate on AI-native algorithm R&amp;D.
+                <a href="mailto:jszxchx@gmail.com" style="color:var(--accent)">Get in touch</a> if you're interested.
+            </p>
+            <div class="cta">
+                <a href="https://scholar.google.com/citations?user=6UPJSvwAAAAJ" class="btn btn-p" target="_blank" rel="noopener">Google Scholar</a>
+                <a href="mailto:jszxchx@gmail.com" class="btn btn-g">Contact Me</a>
+                <a href="https://github.com/scutpaul" class="btn btn-g" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            </div>
+            <div class="hero-avatar">
+                <img src="avatar.png" alt="Haoxin Chen" width="220" height="220">
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ About ════ -->
+    <section id="about">
+        <div class="label rv">About</div>
+        <div class="rv">
+            <p style="max-width:660px;line-height:1.9">
+                I am a video generation algorithm researcher and engineer specializing in diffusion-based generative models.
+                I obtained my Bachelor's and Master's degrees from
+                <strong style="color:var(--text-hi)">South China University of Technology (SCUT)</strong> (2015 – 2022).
+                I have worked at <strong style="color:var(--text-hi)">Tencent</strong> (2021–2024) and
+                <strong style="color:var(--text-hi)">ByteDance</strong> (2024–2026), participating in
+                VideoCrafter, HunyuanVideo, Seedance, and AI-powered short drama platforms
+                (Douyin &amp; Honguo). Currently, I am at
+                <strong style="color:var(--accent)">vivix.ai</strong>, a startup building multimodal
+                real-time interactive generation technology.
+            </p>
+            <div class="interests">
+                <span>Video Generation</span>
+                <span>Diffusion Models</span>
+                <span>Real-time Multimodal Interaction</span>
+                <span>AI-native Internet</span>
+                <span>Computer Vision</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ Experience ════ -->
+    <section id="exp">
+        <div class="label rv">Experience</div>
+        <div>
+            <div class="tl-item rv">
+                <div class="tl-time">2026 – Present</div>
+                <div>
+                    <h3>Algorithm Researcher &amp; Engineer</h3>
+                    <div class="tl-org">vivix.ai</div>
+                    <p class="tl-desc">Multimodal real-time interactive generation R&amp;D at an early-stage startup pushing the boundaries of AI interaction.</p>
+                </div>
+            </div>
+            <div class="tl-item rv">
+                <div class="tl-time">2024 – 2026</div>
+                <div>
+                    <h3>Algorithm Researcher &amp; Engineer</h3>
+                    <div class="tl-org">ByteDance</div>
+                    <p class="tl-desc">Participated in Seedance video generation model R&amp;D. Worked on algorithm systems for Douyin and Honguo AI short drama platforms.</p>
+                </div>
+            </div>
+            <div class="tl-item rv">
+                <div class="tl-time">2021 – 2024</div>
+                <div>
+                    <h3>Algorithm Researcher &amp; Engineer</h3>
+                    <div class="tl-org">Tencent</div>
+                    <p class="tl-desc">Participated in the VideoCrafter series and HunyuanVideo — open-source video generation foundation models.</p>
+                </div>
+            </div>
+            <div class="tl-item rv">
+                <div class="tl-time">2015 – 2022</div>
+                <div>
+                    <h3>B.Eng &amp; M.Eng</h3>
+                    <div class="tl-org">South China University of Technology (SCUT)</div>
+                    <p class="tl-desc">Bachelor's and Master's degrees. Research on computer vision, video understanding, and video object segmentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ Representative Works ════ -->
+    <!--
+        To add actual demo videos or GIFs, place files in the repo and update
+        the <div class="wc-vis"> of each card. Example:
+
+        <div class="wc-vis">
+            <video autoplay loop muted playsinline poster="assets/poster.jpg">
+                <source src="assets/demo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        Or for GIFs:  <img src="assets/demo.gif" alt="Demo">
+    -->
+    <section id="works">
+        <div class="label rv">Representative Works</div>
+        <div class="works-grid">
+
+            <div class="wc rv">
+                <div class="wc-vis">
+                    <div class="bg g1"></div>
+                </div>
+                <div class="wc-body">
+                    <h3>HunyuanVideo</h3>
+                    <div class="wc-meta"><span class="v">Tencent</span></div>
+                    <p class="wc-d">Video generation model developed by Tencent.</p>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <div class="wc-vis">
+                    <div class="bg g2"></div>
+                </div>
+                <div class="wc-body">
+                    <h3>Seedance</h3>
+                    <div class="wc-meta"><span class="v">ByteDance</span></div>
+                    <p class="wc-d">Video generation model developed by ByteDance.</p>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <video autoplay loop muted playsinline>
+                            <source src="https://ailab-cvc.github.io/videocrafter2/video/A_cute_raccoon.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>VideoCrafter2</h3>
+                    <div class="wc-meta"><span class="v">CVPR 2024</span> · 550+ citations</div>
+                    <p class="wc-d">Overcoming data limitations for high-quality video diffusion models through innovative training strategies and data curation.</p>
+                    <div class="wc-links">
+                        <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener">Project</a>
+                        <a href="https://github.com/AILab-CVC/VideoCrafter" target="_blank" rel="noopener">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <video autoplay loop muted playsinline>
+                            <source src="https://ailab-cvc.github.io/videocrafter2/video/bear_run.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>VideoCrafter1</h3>
+                    <div class="wc-meta"><span class="v">arXiv 2023</span> · 540+ citations</div>
+                    <p class="wc-d">Open diffusion models for high-quality video generation, establishing the foundation for the VideoCrafter series.</p>
+                    <div class="wc-links">
+                        <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener">Project</a>
+                        <a href="https://github.com/AILab-CVC/VideoCrafter" target="_blank" rel="noopener">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <a href="https://doubiiu.github.io/projects/DynamiCrafter/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <video autoplay loop muted playsinline>
+                            <source src="https://doubiiu.github.io/projects/DynamiCrafter/video_showcase_1024/girl07.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>DynamiCrafter</h3>
+                    <div class="wc-meta"><span class="v">ECCV 2023</span> · 430+ citations</div>
+                    <p class="wc-d">Animating open-domain images with video diffusion priors, enabling high-quality image-to-video generation.</p>
+                    <div class="wc-links">
+                        <a href="https://doubiiu.github.io/projects/DynamiCrafter/" target="_blank" rel="noopener">Project</a>
+                        <a href="https://github.com/Doubiiu/DynamiCrafter" target="_blank" rel="noopener">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <a href="https://yingqinghe.github.io/scalecrafter/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <video autoplay loop muted playsinline>
+                            <source src="https://yingqinghe.github.io/scalecrafter/videos/0205.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>ScaleCrafter</h3>
+                    <div class="wc-meta"><span class="v">ICLR 2023</span> · 100+ citations</div>
+                    <p class="wc-d">Tuning-free higher-resolution visual generation with diffusion models, enabling resolution scaling without additional training.</p>
+                    <div class="wc-links">
+                        <a href="https://yingqinghe.github.io/scalecrafter/" target="_blank" rel="noopener">Project</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ Publications ════ -->
+    <section id="pub">
+        <div class="label rv">Selected Publications</div>
+        <ul class="pub-list">
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter2+Overcoming+data+limitations+high-quality+video+diffusion" target="_blank" rel="noopener">VideoCrafter2: Overcoming Data Limitations for High-Quality Video Diffusion Models</a></div>
+                <div class="pub-a"><span class="me">H Chen</span>, Y Zhang, X Cun, M Xia, X Wang, C Weng, Y Shan</div>
+                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">550 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter1+Open+diffusion+models+high-quality+video+generation" target="_blank" rel="noopener">VideoCrafter1: Open Diffusion Models for High-Quality Video Generation</a></div>
+                <div class="pub-a"><span class="me">H Chen</span>, M Xia, Y He, Y Zhang, X Cun, S Yang, J Xing, Y Liu, Q Chen, ...</div>
+                <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">542 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=DynamiCrafter+Animating+open-domain+images+video+diffusion+priors" target="_blank" rel="noopener">DynamiCrafter: Animating Open-Domain Images with Video Diffusion Priors</a></div>
+                <div class="pub-a">J Xing, M Xia, Y Zhang, <span class="me">H Chen</span>, X Wang, TT Wong, Y Shan</div>
+                <div class="pub-v"><span class="vn">ECCV</span><span class="yr">2023</span><span class="ct">438 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=EvalCrafter+Benchmarking+evaluating+large+video+generation+models" target="_blank" rel="noopener">EvalCrafter: Benchmarking and Evaluating Large Video Generation Models</a></div>
+                <div class="pub-a">Y Liu, X Cun, X Liu, X Wang, Y Zhang, <span class="me">H Chen</span>, Y Liu, T Zeng, R Chan, ...</div>
+                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">280 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Make-Your-Video+customized+video+generation+textual+structural" target="_blank" rel="noopener">Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance</a></div>
+                <div class="pub-a">J Xing, M Xia, Y Liu, Y Zhang, Y Zhang, Y He, H Liu, <span class="me">H Chen</span>, X Cun, ...</div>
+                <div class="pub-v"><span class="vn">TVCG</span><span class="yr">2024</span><span class="ct">142 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=ScaleCrafter+Tuning-free+higher-resolution+visual+generation+diffusion" target="_blank" rel="noopener">ScaleCrafter: Tuning-free Higher-Resolution Visual Generation with Diffusion Models</a></div>
+                <div class="pub-a">Y He, S Yang, <span class="me">H Chen</span>, X Cun, M Xia, Y Zhang, X Wang, R He, Q Chen, ...</div>
+                <div class="pub-v"><span class="vn">ICLR</span><span class="yr">2023</span><span class="ct">104 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Animate-A-Story+Storytelling+retrieval-augmented+video+generation" target="_blank" rel="noopener">Animate-A-Story: Storytelling with Retrieval-Augmented Video Generation</a></div>
+                <div class="pub-a">Y He, M Xia, <span class="me">H Chen</span>, X Cun, Y Gong, J Xing, Y Zhang, X Wang, C Weng, ...</div>
+                <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">100 cited</span></div>
+            </li>
+
+            <li class="pub rv">
+                <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Delving+deep+many-to-many+attention+few-shot+video+object+segmentation" target="_blank" rel="noopener">Delving Deep into Many-to-Many Attention for Few-Shot Video Object Segmentation</a></div>
+                <div class="pub-a"><span class="me">H Chen</span>, H Wu, N Zhao, S Ren, S He</div>
+                <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2021</span><span class="ct">28 cited</span></div>
+            </li>
+
+        </ul>
+        <p style="margin-top:24px">
+            <a href="https://scholar.google.com/citations?user=6UPJSvwAAAAJ" target="_blank" rel="noopener"
+               style="color:var(--accent);font-size:13px;font-family:var(--mono)">
+                View all publications on Google Scholar &rarr;
+            </a>
+        </p>
+    </section>
+
+    <!-- ════ Contact ════ -->
+    <section id="contact">
+        <div class="label rv">Contact</div>
+        <p class="rv" style="margin-bottom:20px;max-width:540px">
+            Open to discussions about collaboration, internships, and job opportunities.
+            Feel free to reach out via email.
+        </p>
+        <div class="contact-grid rv">
+            <div class="ci">
+                <div class="cl">Email</div>
+                <a href="mailto:jszxchx@gmail.com">jszxchx@gmail.com</a>
+            </div>
+            <div class="ci">
+                <div class="cl">Google Scholar</div>
+                <a href="https://scholar.google.com/citations?user=6UPJSvwAAAAJ" target="_blank" rel="noopener">Haoxin Chen</a>
+            </div>
+            <div class="ci">
+                <div class="cl">GitHub</div>
+                <a href="https://github.com/scutpaul" target="_blank" rel="noopener">@scutpaul</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <div class="wrap">
+        <p>&copy; 2026 Haoxin Chen</p>
+        <div class="ai-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+            This page was designed &amp; built by AI Agent
+        </div>
+    </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
