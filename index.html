@@ -201,7 +201,7 @@
         .hero-body { width: 100%; position: relative; }
         .hero-row { display: flex; align-items: center; gap: 48px; }
         .hero-text { flex: 1; min-width: 0; }
-        .hero-avatar { flex-shrink: 0; }
+        .hero-avatar { flex-shrink: 0; position: relative; }
         .hero-avatar img {
             width: 200px;
             height: 200px;
@@ -445,6 +445,72 @@
             nav .links a { font-size: 12px; }
             .hero h1 { font-size: 2rem; }
         }
+
+        /* ── Custom Cursor ── */
+        @media (pointer: fine) {
+            *, *::before, *::after { cursor: none !important; }
+        }
+        .cursor-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        /* ── Avatar Pulse Rings ── */
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid rgba(0,212,255,0.35);
+            width: 200px;
+            height: 200px;
+            animation: pulse-expand 3.5s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes pulse-expand {
+            0% { width: 200px; height: 200px; opacity: 0.6; }
+            100% { width: 360px; height: 360px; opacity: 0; }
+        }
+
+        /* ── Text Scramble ── */
+        .scramble-char {
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* ── Typing Cursor ── */
+        .typing-cursor {
+            display: inline-block;
+            width: 7px;
+            height: 1.1em;
+            background: var(--accent);
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink-cursor .7s step-end infinite;
+        }
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ── 3D Card Shine ── */
+        .wc {
+            transform-style: preserve-3d;
+        }
+        .wc-shine {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--r);
+            background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%), rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .3s;
+            z-index: 10;
+        }
+        .wc:hover .wc-shine { opacity: 1; }
 
         /* ── Noscript fallback ── */
         noscript .rv { opacity: 1; transform: none; }
@@ -781,10 +847,210 @@
 </footer>
 
 <script>
+/* ── Scroll Reveal ── */
 const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ── 1. Cursor Particle Trail + Custom Ring ── */
+(function() {
+    if (!window.matchMedia('(pointer:fine)').matches) return;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'cursor-canvas';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    function resize() { w = canvas.width = innerWidth; h = canvas.height = innerHeight; }
+    resize();
+    addEventListener('resize', resize);
+
+    let mx = -200, my = -200, fx = -200, fy = -200, visible = false;
+    let hovering = false;
+    const particles = [];
+    const MAX_P = 80;
+
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; visible = true; });
+    document.addEventListener('mouseleave', () => { visible = false; });
+    document.addEventListener('mouseover', e => {
+        const t = e.target.closest('a, button, .btn, [role="button"], input, textarea, select');
+        hovering = !!t;
+    });
+
+    function spawn(x, y) {
+        if (particles.length >= MAX_P) return;
+        particles.push({
+            x, y,
+            size: Math.random() * 2.5 + 1,
+            life: 1,
+            decay: Math.random() * 0.025 + 0.018,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            hue: 185 + Math.random() * 25
+        });
+    }
+
+    let fc = 0;
+    function loop() {
+        ctx.clearRect(0, 0, w, h);
+        fx += (mx - fx) * 0.13;
+        fy += (my - fy) * 0.13;
+
+        if (visible) {
+            fc++;
+            if (fc % 2 === 0) spawn(fx + (Math.random() - 0.5) * 6, fy + (Math.random() - 0.5) * 6);
+
+            const ringR = hovering ? 24 : 18;
+            const ringAlpha = hovering ? 0.6 : 0.35;
+
+            ctx.save();
+            ctx.strokeStyle = 'rgba(0,212,255,' + ringAlpha + ')';
+            ctx.lineWidth = 1.5;
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = 'rgba(0,212,255,0.3)';
+            ctx.beginPath();
+            ctx.arc(fx, fy, ringR, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = 'rgba(0,212,255,0.85)';
+            ctx.shadowBlur = 6;
+            ctx.beginPath();
+            ctx.arc(fx, fy, 3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.x += p.vx; p.y += p.vy;
+            p.life -= p.decay;
+            p.size *= 0.985;
+            if (p.life <= 0) { particles.splice(i, 1); continue; }
+            ctx.save();
+            ctx.globalAlpha = p.life;
+            ctx.fillStyle = 'hsla(' + p.hue + ',100%,70%,' + p.life + ')';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'hsla(' + p.hue + ',100%,60%,0.4)';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+        requestAnimationFrame(loop);
+    }
+    loop();
+})();
+
+/* ── 2+3. Text Scramble + Terminal Typing (linked) ── */
+(function() {
+    const h1 = document.querySelector('.hero h1');
+    const tag = document.querySelector('.hero .tag');
+    if (!h1 || !tag) return;
+
+    const chars = '!<>-_\\/[]{}—=+*^?#________';
+    const finalName = h1.textContent;
+    h1.textContent = '';
+
+    let scrambleRaf, keepScrambling = true;
+    function scrambleCycle() {
+        let out = '';
+        for (let i = 0; i < finalName.length; i++) {
+            if (finalName[i] === ' ') { out += ' '; continue; }
+            out += '<span class="scramble-char">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
+        }
+        h1.innerHTML = out;
+        if (keepScrambling) scrambleRaf = requestAnimationFrame(scrambleCycle);
+    }
+
+    function resolveScramble() {
+        keepScrambling = false;
+        cancelAnimationFrame(scrambleRaf);
+        let revealed = 0, frame = 0;
+        function step() {
+            let out = '';
+            for (let i = 0; i < finalName.length; i++) {
+                if (i < revealed) { out += finalName[i]; }
+                else if (finalName[i] === ' ') { out += ' '; }
+                else { out += '<span class="scramble-char">' + chars[Math.floor(Math.random() * chars.length)] + '</span>'; }
+            }
+            h1.innerHTML = out;
+            frame++;
+            if (frame % 3 === 0) revealed++;
+            if (revealed <= finalName.length) requestAnimationFrame(step);
+        }
+        step();
+    }
+
+    const text = tag.textContent;
+    tag.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    tag.appendChild(cursor);
+
+    setTimeout(scrambleCycle, 200);
+
+    let ci = 0;
+    function type() {
+        if (ci < text.length) {
+            tag.insertBefore(document.createTextNode(text[ci]), cursor);
+            ci++;
+            setTimeout(type, 25 + Math.random() * 45);
+        } else {
+            resolveScramble();
+            setTimeout(() => cursor.style.display = 'none', 2500);
+        }
+    }
+    setTimeout(type, 600);
+})();
+
+/* ── 4. 3D Tilt on Works Cards ── */
+document.querySelectorAll('.wc').forEach(card => {
+    const shine = document.createElement('div');
+    shine.className = 'wc-shine';
+    card.style.position = 'relative';
+    card.appendChild(shine);
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const rx = (y - r.height / 2) / r.height * -10;
+        const ry = (x - r.width / 2) / r.width * 10;
+        card.style.transform = 'perspective(800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
+        card.style.transition = 'transform .1s ease-out, box-shadow .3s';
+        shine.style.setProperty('--shine-x', (x / r.width * 100) + '%');
+        shine.style.setProperty('--shine-y', (y / r.height * 100) + '%');
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'all .5s cubic-bezier(.03,.98,.52,.99)';
+    });
+});
+
+/* ── 5. Avatar Pulse Rings ── */
+(function() {
+    const av = document.querySelector('.hero-avatar');
+    if (!av) return;
+    for (let i = 0; i < 3; i++) {
+        const ring = document.createElement('div');
+        ring.className = 'pulse-ring';
+        ring.style.animationDelay = (i * 1.15) + 's';
+        av.appendChild(ring);
+    }
+})();
+
+/* ── 6. Magnetic Buttons ── */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.35) + 'px,' + (y * 0.35) + 'px)';
+        btn.style.transition = 'transform .15s ease-out';
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'transform .4s cubic-bezier(.03,.98,.52,.99)';
+    });
+});
 </script>
 
 </body>
