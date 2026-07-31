@@ -12,15 +12,15 @@
       gtag('js', new Date());
       gtag('config', 'G-9PM2WHBTKT');
     </script>
-    <title>Haoxin Chen | Video Generation Researcher & Engineer</title>
+    <title>Haoxin Chen | Video Generation Researcher &amp; Engineer</title>
 
     <meta name="description" content="Haoxin Chen - Video Generation Algorithm Researcher and Engineer. Key contributor to VideoCrafter, HunyuanVideo, Seedance. Currently at vivix.ai building multimodal real-time interactive generation.">
     <meta name="keywords" content="Haoxin Chen, video generation, diffusion models, VideoCrafter, HunyuanVideo, Seedance, DynamiCrafter, AI, computer vision, SCUT, Tencent, ByteDance, vivix.ai, multimodal, real-time interactive generation">
     <meta name="author" content="Haoxin Chen">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
-    <meta property="og:title" content="Haoxin Chen | Video Generation Researcher & Engineer">
-    <meta property="og:description" content="Video generation algorithm researcher & engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance. 2500+ citations.">
+    <meta property="og:title" content="Haoxin Chen | Video Generation Researcher &amp; Engineer">
+    <meta property="og:description" content="Video generation algorithm researcher &amp; engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance, Vivix-A1, and Vivix-W1. 3,100+ Google Scholar citations.">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://scutpaul.github.io">
     <meta property="profile:first_name" content="Haoxin">
@@ -28,7 +28,7 @@
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Haoxin Chen | Video Generation Researcher">
-    <meta name="twitter:description" content="Video generation algorithm researcher & engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance.">
+    <meta name="twitter:description" content="Video generation algorithm researcher &amp; engineer. Contributor to VideoCrafter, HunyuanVideo, Seedance.">
 
     <link rel="canonical" href="https://scutpaul.github.io">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306060e'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2300d4ff' font-size='16' font-family='monospace' font-weight='bold'>HC</text></svg>">
@@ -67,7 +67,7 @@
             "AI-native Internet",
             "Video Object Segmentation"
         ],
-        "description": "Video generation algorithm researcher and engineer. Graduated from South China University of Technology (2015-2022). Participated in VideoCrafter and HunyuanVideo at Tencent (2021-2024), Seedance and AI short drama platforms at ByteDance (2024-2026). Currently at vivix.ai working on multimodal real-time interactive generation. 2500+ total citations.",
+        "description": "Video generation algorithm researcher and engineer. Graduated from South China University of Technology (2015-2022). Participated in VideoCrafter and HunyuanVideo at Tencent (2021-2024), Seedance and AI short drama platforms at ByteDance (2024-2026). Currently at vivix.ai working on streaming-native, multimodal real-time interactive generation. 3,100+ Google Scholar citations.",
         "memberOf": [
             {"@type": "Organization", "name": "Tencent", "description": "Participated in VideoCrafter series and HunyuanVideo (2021-2024)"},
             {"@type": "Organization", "name": "ByteDance", "description": "Participated in Seedance, Douyin and Honguo AI short drama platforms (2024-2026)"}
@@ -77,7 +77,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -99,7 +99,7 @@
             --r: 8px;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             font-family: var(--font);
@@ -353,6 +353,16 @@
         }
         .wc:hover .play { background: rgba(0,212,255,.25); border-color: var(--accent); transform: scale(1.1); }
         .play svg { width: 16px; height: 16px; fill: #fff; margin-left: 2px; }
+        .model-mark {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            font-family: var(--mono);
+            text-shadow: 0 2px 18px rgba(0,0,0,.45);
+        }
+        .model-mark strong { display: block; font-size: 24px; letter-spacing: -.04em; }
+        .model-mark span { display: block; margin-top: 5px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .72; }
 
         .wc-body { padding: 14px 16px 16px; }
         .wc-body h3 { font-size: 15px; font-weight: 600; color: var(--text-hi); margin-bottom: 3px; }
@@ -479,6 +489,10 @@
             nav .links a { font-size: 12px; }
             .hero h1 { font-size: 2rem; }
         }
+        @media (max-width: 420px) {
+            nav .inner { justify-content: center; }
+            nav .logo { display: none; }
+        }
 
         /* ── Custom Cursor ── */
         @media (pointer: fine) {
@@ -581,7 +595,7 @@
                 <strong>Seedance</strong>. Currently exploring real-time interactive
                 multimodal generation at <strong class="hl">vivix.ai</strong>.
                 <br><br>
-                2,500+ total citations &middot; Published at CVPR, ECCV, ICLR, SIGGRAPH Asia.
+                3,100+ Google Scholar citations &middot; Published at CVPR, ECCV, ICLR, SIGGRAPH Asia.
                 <br><br>
                 Currently looking for like-minded partners in <strong>real-time interaction</strong> and
                 <strong>multimodal generation</strong> to collaborate on AI-native algorithm R&amp;D.
@@ -612,8 +626,8 @@
                 <strong style="color:var(--text-hi)">ByteDance</strong> (2024–2026), participating in
                 VideoCrafter, HunyuanVideo, Seedance, and AI-powered short drama platforms
                 (Douyin &amp; Honguo). Currently, I am at
-                <strong style="color:var(--accent)">vivix.ai</strong>, a startup building multimodal
-                real-time interactive generation technology.
+                <strong style="color:var(--accent)">vivix.ai</strong>, where I work on streaming-native,
+                multimodal real-time interactive generation through Vivix-A1 and Vivix-W1.
             </p>
             <div class="interests">
                 <span>Video Generation</span>
@@ -634,7 +648,7 @@
                 <div>
                     <h3>Algorithm Researcher &amp; Engineer</h3>
                     <div class="tl-org">vivix.ai</div>
-                    <p class="tl-desc">Multimodal real-time interactive generation R&amp;D at an early-stage startup pushing the boundaries of AI interaction.</p>
+                    <p class="tl-desc">Streaming-native, multimodal real-time interactive generation R&amp;D, including Vivix-A1 and Vivix-W1.</p>
                 </div>
             </div>
             <div class="tl-item rv">
@@ -682,6 +696,40 @@
         <div class="works-grid">
 
             <div class="wc rv">
+                <a href="https://vivix.ai/vivix-a1" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <div class="bg g5"></div>
+                        <div class="model-mark"><strong>Vivix-A1</strong><span>Streaming Generation</span></div>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>Vivix-A1</h3>
+                    <div class="wc-meta"><span class="v">Vivix · 2026</span></div>
+                    <p class="wc-d">Real-time, full-duplex AI characters powered by low-latency streaming audio-video generation for continuous interaction in open worlds.</p>
+                    <div class="wc-links">
+                        <a href="https://vivix.ai/vivix-a1" target="_blank" rel="noopener">Explore A1</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wc rv">
+                <a href="https://vivix.ai/vivix-w1" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="wc-vis">
+                        <div class="bg g6"></div>
+                        <div class="model-mark"><strong>Vivix-W1</strong><span>Multimodal References</span></div>
+                    </div>
+                </a>
+                <div class="wc-body">
+                    <h3>Vivix-W1</h3>
+                    <div class="wc-meta"><span class="v">Vivix · 2026</span></div>
+                    <p class="wc-d">A streaming-native world model with text, image, audio, and video references that can keep shaping an evolving audio-visual world during generation.</p>
+                    <div class="wc-links">
+                        <a href="https://vivix.ai/vivix-w1" target="_blank" rel="noopener">Explore W1</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wc rv">
                 <div class="wc-vis">
                     <div class="bg g1"></div>
                 </div>
@@ -713,7 +761,7 @@
                 </a>
                 <div class="wc-body">
                     <h3>VideoCrafter2</h3>
-                    <div class="wc-meta"><span class="v">CVPR 2024</span> · 550+ citations</div>
+                    <div class="wc-meta"><span class="v">CVPR 2024</span> · 700+ citations</div>
                     <p class="wc-d">Overcoming data limitations for high-quality video diffusion models through innovative training strategies and data curation.</p>
                     <div class="wc-links">
                         <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener">Project</a>
@@ -732,7 +780,7 @@
                 </a>
                 <div class="wc-body">
                     <h3>VideoCrafter1</h3>
-                    <div class="wc-meta"><span class="v">arXiv 2023</span> · 540+ citations</div>
+                    <div class="wc-meta"><span class="v">arXiv 2023</span> · 630+ citations</div>
                     <p class="wc-d">Open diffusion models for high-quality video generation, establishing the foundation for the VideoCrafter series.</p>
                     <div class="wc-links">
                         <a href="https://ailab-cvc.github.io/videocrafter2/" target="_blank" rel="noopener">Project</a>
@@ -751,7 +799,7 @@
                 </a>
                 <div class="wc-body">
                     <h3>DynamiCrafter</h3>
-                    <div class="wc-meta"><span class="v">ECCV 2023</span> · 430+ citations</div>
+                    <div class="wc-meta"><span class="v">ECCV 2023</span> · 540+ citations</div>
                     <p class="wc-d">Animating open-domain images with video diffusion priors, enabling high-quality image-to-video generation.</p>
                     <div class="wc-links">
                         <a href="https://doubiiu.github.io/projects/DynamiCrafter/" target="_blank" rel="noopener">Project</a>
@@ -770,7 +818,7 @@
                 </a>
                 <div class="wc-body">
                     <h3>ScaleCrafter</h3>
-                    <div class="wc-meta"><span class="v">ICLR 2023</span> · 100+ citations</div>
+                    <div class="wc-meta"><span class="v">ICLR 2023</span> · 130+ citations</div>
                     <p class="wc-d">Tuning-free higher-resolution visual generation with diffusion models, enabling resolution scaling without additional training.</p>
                     <div class="wc-links">
                         <a href="https://yingqinghe.github.io/scalecrafter/" target="_blank" rel="noopener">Project</a>
@@ -792,12 +840,12 @@
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter2+Overcoming+data+limitations+high-quality+video+diffusion" target="_blank" rel="noopener">VideoCrafter2: Overcoming Data Limitations for High-Quality Video Diffusion Models</a></div>
                     <div class="pub-a"><span class="me">H Chen</span>, Y Zhang, X Cun, M Xia, X Wang, C Weng, Y Shan</div>
-                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">550 cited</span></div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">705 cited</span></div>
                 </li>
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=VideoCrafter1+Open+diffusion+models+high-quality+video+generation" target="_blank" rel="noopener">VideoCrafter1: Open Diffusion Models for High-Quality Video Generation</a></div>
                     <div class="pub-a"><span class="me">H Chen</span>, M Xia, Y He, Y Zhang, X Cun, S Yang, J Xing, Y Liu, Q Chen, ...</div>
-                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">542 cited</span></div>
+                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">638 cited</span></div>
                 </li>
             </ul>
         </div>
@@ -809,22 +857,22 @@
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=DynamiCrafter+Animating+open-domain+images+video+diffusion+priors" target="_blank" rel="noopener">DynamiCrafter: Animating Open-Domain Images with Video Diffusion Priors</a></div>
                     <div class="pub-a">J Xing, M Xia, Y Zhang, <span class="me">H Chen</span>, X Wang, TT Wong, Y Shan</div>
-                    <div class="pub-v"><span class="vn">ECCV</span><span class="yr">2023</span><span class="ct">438 cited</span></div>
+                    <div class="pub-v"><span class="vn">ECCV</span><span class="yr">2023</span><span class="ct">541 cited</span></div>
                 </li>
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Make-Your-Video+customized+video+generation+textual+structural" target="_blank" rel="noopener">Make-Your-Video: Customized Video Generation Using Textual and Structural Guidance</a></div>
                     <div class="pub-a">J Xing, M Xia, Y Liu, Y Zhang, Y Zhang, Y He, H Liu, <span class="me">H Chen</span>, X Cun, ...</div>
-                    <div class="pub-v"><span class="vn">TVCG</span><span class="yr">2024</span><span class="ct">142 cited</span></div>
+                    <div class="pub-v"><span class="vn">TVCG</span><span class="yr">2024</span><span class="ct">168 cited</span></div>
                 </li>
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Animate-A-Story+Storytelling+retrieval-augmented+video+generation" target="_blank" rel="noopener">Animate-A-Story: Storytelling with Retrieval-Augmented Video Generation</a></div>
                     <div class="pub-a">Y He, M Xia, <span class="me">H Chen</span>, X Cun, Y Gong, J Xing, Y Zhang, X Wang, C Weng, ...</div>
-                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">100 cited</span></div>
+                    <div class="pub-v"><span class="vn">arXiv</span><span class="yr">2023</span><span class="ct">114 cited</span></div>
                 </li>
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=ScaleCrafter+Tuning-free+higher-resolution+visual+generation+diffusion" target="_blank" rel="noopener">ScaleCrafter: Tuning-free Higher-Resolution Visual Generation with Diffusion Models</a></div>
                     <div class="pub-a">Y He, S Yang, <span class="me">H Chen</span>, X Cun, M Xia, Y Zhang, X Wang, R He, Q Chen, ...</div>
-                    <div class="pub-v"><span class="vn">ICLR</span><span class="yr">2023</span><span class="ct">104 cited</span></div>
+                    <div class="pub-v"><span class="vn">ICLR</span><span class="yr">2023</span><span class="ct">135 cited</span></div>
                 </li>
             </ul>
         </div>
@@ -836,7 +884,7 @@
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=EvalCrafter+Benchmarking+evaluating+large+video+generation+models" target="_blank" rel="noopener">EvalCrafter: Benchmarking and Evaluating Large Video Generation Models</a></div>
                     <div class="pub-a">Y Liu, X Cun, X Liu, X Wang, Y Zhang, <span class="me">H Chen</span>, Y Liu, T Zeng, R Chan, ...</div>
-                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">280 cited</span></div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2024</span><span class="ct">385 cited</span></div>
                 </li>
             </ul>
         </div>
@@ -848,7 +896,7 @@
                 <li class="pub">
                     <div class="pub-t"><a href="https://scholar.google.com/scholar?q=Delving+deep+many-to-many+attention+few-shot+video+object+segmentation" target="_blank" rel="noopener">Delving Deep into Many-to-Many Attention for Few-Shot Video Object Segmentation</a></div>
                     <div class="pub-a"><span class="me">H Chen</span>, H Wu, N Zhao, S Ren, S He</div>
-                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2021</span><span class="ct">28 cited</span></div>
+                    <div class="pub-v"><span class="vn">CVPR</span><span class="yr">2021</span><span class="ct">30 cited</span></div>
                 </li>
             </ul>
         </div>
@@ -888,7 +936,7 @@
 
 <footer>
     <div class="wrap">
-        <p>&copy; 2026 Haoxin Chen &middot; Last updated Mar 2026</p>
+        <p>&copy; 2026 Haoxin Chen &middot; Last updated Aug 2026</p>
         <div class="ai-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
